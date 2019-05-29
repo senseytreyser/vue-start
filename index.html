@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Носки</title>
+</head>
+<body>
+    <div id="app">
+        <article>
+            <header class="header">
+                <h1>{{ product }}</h1>
+            </header>
+            <div class="info">
+                <img v-bind:src="image" v-bind:alt="description" v-bind:height="height">
+                <p v-if="inState">Есть в наличии</p>
+                <p v-else>Нет в наличии</p>
+                <ul>
+                    <li v-for="detail in prop">{{detail}}</li>
+                </ul>
+                <p v-for="variant in variants":key="variant.id">{{variant.color}}</p>
+            </div>
+        </article>
+        
+
+    </div>
+
+    <script src="./js/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
