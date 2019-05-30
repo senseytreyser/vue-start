@@ -1,0 +1,52 @@
+﻿#app>article,
+.header,
+.info{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.header{
+    width: 100%;
+}
+
+.header>h1{
+    width: 100%;
+    text-align: center;
+}
+
+.info{
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 400px;
+    position: relative;
+}
+
+.info__img{
+    width: 50%;
+}
+
+.info__content{
+    width: 50%;
+}
+
+.info__card{
+    border: 1px solid gray;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.info__card-number{
+
+}
+
+.color-box{
+    flex: 0 0 auto;
+    height: 40px;
+    width: 40px;
+    margin-top: 5px;
+}
+
+.disabled-btn{
+    border: 1px solid black;
+}

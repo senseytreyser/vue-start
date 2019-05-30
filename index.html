@@ -4,22 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
     <title>Носки</title>
 </head>
 <body>
     <div id="app">
         <article>
             <header class="header">
-                <h1>{{ product }}</h1>
+                <h1>{{ title }}</h1>
             </header>
             <div class="info">
-                <img v-bind:src="image" v-bind:alt="description" v-bind:height="height">
-                <p v-if="inState">Есть в наличии</p>
-                <p v-else>Нет в наличии</p>
-                <ul>
-                    <li v-for="detail in prop">{{detail}}</li>
-                </ul>
-                <p v-for="variant in variants":key="variant.id">{{variant.color}}</p>
+                <div class="info__card" >
+                    <span class="info__card-number"> В корзине: {{card}}</span>
+                </div>
+                <div class="info__img">
+                    <img v-bind:src="image" v-bind:alt="description" v-bind:height="height">
+                </div>
+                <div class="info__content">
+                    <p v-if="inState">Есть в наличии</p>
+                    <p v-else>Нет в наличии</p>
+                    <ul>
+                        <li v-for="detail in prop">{{detail}}</li>
+                    </ul>
+                    <p v-for="variant in variants"
+                        :key="variant.id" 
+                        @mouseover="changeProduct(variant.img)"
+                        class="color-box"
+                        :style="{backgroundColor: variant.color}">
+                    </p>
+                    <button  
+                    @click="addToCard"
+                    class="info__button"
+                    :class = "{ 'disabled-btn': !inState }" 
+                    :disabled="!inState">Купить!</button>
+                </div>
             </div>
         </article>
         
